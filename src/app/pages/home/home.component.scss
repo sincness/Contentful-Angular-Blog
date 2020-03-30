@@ -1,0 +1,47 @@
+/* ==========================================================================
+   Home Pages
+   ========================================================================== */
+
+@import "../../imports/shadow";
+
+.home {
+  position: relative;
+  display: flex;
+
+  .blogpost {
+    width: 60%;
+    display: inline-block;
+
+    ul {
+      padding: 0px;
+      margin: 0px;
+
+      li {
+        border-radius: 30px;
+        background: white;
+        padding: 40px;
+        margin: 20px;
+        @include shadow5;
+        list-style-type: none;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .sidebar {
+    display: inline-block;
+    width: 40%;
+    height: auto;
+
+    top: 70px;
+    right: 60px;
+    border-radius: 30px;
+    background: white;
+    @include shadow5;
+
+
+  }
+}

@@ -1,0 +1,12 @@
+<div class="home">
+  <div class="blogpost">
+    <ul>
+      <li *ngFor="let product of Posts">
+        <h1>{{ product.fields.title }}</h1>
+        <div [innerHtml]="_returnHtmlFromRichText(product.fields.textField)"></div>
+        <img class="article_img" src="http:{{ product.fields.image.fields.file.url }}" alt="image" />
+      </li>
+    </ul>
+  </div>
+  <app-sidebar class="sidebar"> </app-sidebar>
+</div>

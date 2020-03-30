@@ -1,1 +1,87 @@
-/* You can add global styles to this file, and also import other style files */
+/**
+* Blog Site Angular
+* Author: Kræn Byskov kraenbyskov@gmail.com
+*/
+
+/* ==========================================================================
+Import
+========================================================================== */
+
+/* Normalize */
+@import "../src/app/imports/normalize";
+/* Color */
+@import "../src/app/imports/color";
+/* Typografi */
+@import "../src/app/imports/typografi";
+/* Mixing */
+@import "../src/app/imports/mixing";
+/* shadows */
+@import "../src/app/imports/mixing";
+/* Gradient */
+@import "../src/app/imports/gradient";
+/* Transition */
+@import "../src/app/imports/transition";
+
+
+
+/* ==========================================================================
+   Gradient - How to use
+
+   @include linear-gradient(#31B7D7, #EDAC7D);
+   @include linear-gradient(to right, #E47D7D 0%, #C195D3 50%, #4FB4E8 100%);
+   @include linear-gradient(42deg, #B58234 0%, #D2B545 50%, #D7C04D 50.01%, #FFFFFF 100%);
+
+   KeyFrames – How to use it
+
+   @keyframes Name {
+   0%   {top: -200px;}
+   100%   {top: 200px;}
+   }
+
+   Media Query - How to use it
+
+   @include respond-below(xs) {}
+   @include respond-between(xs, sm) {}
+   @include respond-above(sm) {}
+
+   Transition - How to use it
+
+   @include transition;
+   @include transition(all, 0.35s, cubic-bezier(.35, 0, .1, 1));
+
+   Math - How to use it
+
+   pi()
+   pow($number, $exp)
+   fact($number)
+   rad($angle)
+   sin($angle)
+   cos($angle)
+   tan($angle)
+   percentage($number)
+
+
+   Goood Naming Conventions .stick-man {
+      color: green;
+
+      &__head {
+         color: blue;
+      }
+
+      &__arms {
+         color: yellow;
+      }
+
+      &__feet {
+         color: orange;
+      }
+   }
+
+   Content
+   ========================================================================== */
+
+
+body {
+  background-color: lightgray;
+
+}

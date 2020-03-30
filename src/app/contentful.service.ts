@@ -1,35 +1,25 @@
 import { Injectable } from "@angular/core";
-
 import { createClient, Entry } from "contentful";
 
-const CONFIG = {
-  space: "tru394ah5370",
-  accessToken: "ykryRRQJuJvloPA8EvYNWHnhxHGLSFU0r-67hZufQDQ",
-
-  contentTypeIds: {
-    product: "2PqfXUJwE8qSYKuM0U6w8M"
-  }
-};
-
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class ContentfulService {
+  CONFIG = {
+    space: "kn33bkhab8tl",
+    accessToken: "t75ExREYp9Y8UFPb94lzZcfgHfY2p3Pq9fNEc6e-kK8"
+  };
+
   private cdaClient = createClient({
-    space: CONFIG.space,
-    accessToken: CONFIG.accessToken
+    space: this.CONFIG.space,
+    accessToken: this.CONFIG.accessToken
   });
 
   constructor() {}
 
-  getProducts(query?: object): Promise<Entry<any>[]> {
+  getBlogPosts(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient
-      .getEntries(
-        Object.assign(
-          {
-            content_type: CONFIG.contentTypeIds.product
-          },
-          query
-        )
-      )
+      .getEntries(Object.assign({}, query))
       .then(res => res.items);
   }
 }

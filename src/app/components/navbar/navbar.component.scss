@@ -1,0 +1,30 @@
+/* ==========================================================================
+   Navigation bar
+   ========================================================================== */
+
+@import "../../imports/color";
+
+nav,
+ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+nav {
+  background: $red;
+
+  ul {
+    width: 100%;
+
+    li {
+      list-style-type: none;
+      width: (100% / 3);
+      list-style: none;
+
+      a {
+        color: white;
+      }
+    }
+  }
+}
