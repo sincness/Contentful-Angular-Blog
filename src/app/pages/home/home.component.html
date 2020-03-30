@@ -8,5 +8,38 @@
       </li>
     </ul>
   </div>
-  <app-sidebar class="sidebar"> </app-sidebar>
+  <div class="sidebar">
+    <div class="content">
+      <div class="search">
+        <input type="text" name="" placeholder="To search type and hit enter" id="">
+      </div>
+      <div class="reacentposts">
+        <h3>Recent posts</h3>
+        <li *ngFor="let product of Posts">
+          <a href="#">{{ product.fields.title }}</a>
+        </li>
+      </div>
+      <div class="archives">
+        <h3>Archives</h3>
+
+        <li *ngFor="let product of Posts">
+          <a href="#">{{ product.fields.title }}</a>
+        </li>
+      </div>
+      <div class="Categories">
+        <h3>Categories</h3>
+
+        <li *ngFor="let product of Posts">
+          <a href="#">{{ product.fields.title }}</a>
+        </li>
+      </div>
+      <div class="tags">
+        <h3>Tags</h3>
+
+        <li *ngFor="let product of Posts">
+          <a href="#">{{ product.fields.title }}</a>
+        </li>
+      </div>
+    </div>
+  </div>
 </div>

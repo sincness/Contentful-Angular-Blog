@@ -13,7 +13,6 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { ContactComponent } from "./pages/contact/contact.component";
 import { AboutComponent } from "./pages/about/about.component";
-import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -30,8 +29,7 @@ const routes: Routes = [
     FooterComponent,
     NavbarComponent,
     ContactComponent,
-    AboutComponent,
-    SidebarComponent
+    AboutComponent
   ],
   imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(routes)],
   providers: [ContentfulService],
