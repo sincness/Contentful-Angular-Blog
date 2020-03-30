@@ -13,6 +13,9 @@ export class HomeComponent implements OnInit {
   constructor(private contentfulService: ContentfulService) {}
   ngOnInit() {
     this.contentfulService.getBlogPosts().then(Posts => (this.Posts = Posts));
+    console.log(
+      this.contentfulService.getBlogPosts().then(Posts => (this.Posts = Posts))
+    );
   }
 
   _returnHtmlFromRichText(richText) {
@@ -24,5 +27,19 @@ export class HomeComponent implements OnInit {
       return "<p>Error</p>";
     }
     return documentToHtmlString(richText);
+  }
+
+  _returnCreatedDate(datetime) {
+    if (datetime === undefined || datetime === null) {
+      return "<p>Error</p>";
+    }
+    const e = new Date(datetime);
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    };
+    return e.toLocaleDateString("da-DK", options);
   }
 }
