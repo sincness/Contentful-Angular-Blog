@@ -1,9 +1,8 @@
-name: Firebase_Continuous_Deployment
+name: Firebase Continuous Deployment
 
 on:
   push:
-    branches: [ master ]
-
+    branches: [master]
 
 jobs:
   deploy:
@@ -12,11 +11,11 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
-        node-version: 12
+          node-version: 12
       - run: npm ci
       - run: npm run build
       - uses: w9jds/firebase-action@master
-      width:
-        args: deploy --only hosting
+        with:
+          args: deploy --only hosting
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN  }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
