@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ContentfulService } from "../../contentful.service";
+import { Router } from "@angular/router";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { Entry } from "contentful";
 @Component({
@@ -10,12 +11,17 @@ import { Entry } from "contentful";
 export class HomeComponent implements OnInit {
   Posts: Entry<any>[] = [];
 
-  constructor(private contentfulService: ContentfulService) {}
+  constructor(
+    private router: Router,
+    private contentfulService: ContentfulService
+  ) {}
   ngOnInit() {
     this.contentfulService.getBlogPosts().then(Posts => (this.Posts = Posts));
-    console.log(
-      this.contentfulService.getBlogPosts().then(Posts => (this.Posts = Posts))
-    );
+  }
+
+  goToCourseDetailsPage(courseId) {
+    console.log(courseId);
+    this.router.navigate(["/post", courseId]);
   }
 
   _returnHtmlFromRichText(richText) {

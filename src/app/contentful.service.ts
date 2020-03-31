@@ -22,4 +22,10 @@ export class ContentfulService {
       .getEntries(Object.assign({}, query))
       .then(res => res.items);
   }
+
+  getCourse(courseId): Promise<Entry<any>> {
+    return this.cdaClient
+      .getEntries(Object.assign({}, { "sys.id": courseId }))
+      .then(res => res.items[0]);
+  }
 }

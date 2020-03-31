@@ -1,1 +1,10 @@
-<p>posts works!</p>
+<h1>{{ post.fields.title }}</h1>
+<div [innerHtml]="_returnHtmlFromRichText(post.fields.textField)"></div>
+
+<p class="categories" *ngFor="let categories of post.fields.categories">
+  {{categories}}
+</p>
+<img class="article_img" src="http:{{ post.fields.image.fields.file.url }}" alt="image" />
+<p class="tags" *ngFor="let tags of post.fields.tags">
+  {{tags}}
+</p>

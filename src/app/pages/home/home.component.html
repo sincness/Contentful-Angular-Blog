@@ -23,7 +23,7 @@
       <div class="reacentposts">
         <h3>Recent posts</h3>
         <li *ngFor="let post of Posts">
-          <a href="#">{{ post.fields.title }}</a>
+          <a (click)="goToCourseDetailsPage(post.sys.id)">{{ post.fields.title }}</a>
         </li>
       </div>
       <div class="archives">
