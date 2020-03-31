@@ -1,4 +1,4 @@
-name: Firebase Continuous Deployment
+name: Deploy
 
 on:
   push:
@@ -11,9 +11,9 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
-          node-version: 12
+          node-version: $
       - run: npm ci
-      - run: ng build
+      - run: npm run build:ci
       - uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
