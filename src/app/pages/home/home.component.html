@@ -12,9 +12,11 @@
         <p class="tags" *ngFor="let tags of post.fields.tags">
           {{tags}}
         </p>
+        <a class="btn" (click)="goToCourseDetailsPage(post.sys.id)">Read more</a>
       </li>
     </ul>
   </div>
+
   <div id="js_sidebar" class="sidebar">
     <div class="content">
       <div class="search">
@@ -26,7 +28,7 @@
           <a (click)="goToCourseDetailsPage(post.sys.id)">{{ post.fields.title }}</a>
         </li>
       </div>
-      <div class="archives">
+      <!-- <div class="archives">
         <h3>Archives</h3>
 
         <li *ngFor="let post of Posts">
@@ -46,7 +48,7 @@
         <li *ngFor="let post of Posts">
           <a href="#">{{ post.fields.title }}</a>
         </li>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
