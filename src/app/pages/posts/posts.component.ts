@@ -15,14 +15,19 @@ export class PostsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private contentfulService: ContentfulService
   ) {}
 
   ngOnInit() {
-    const courseId = this.route.snapshot.paramMap.get("id");
-    this.contentfulService.getCourse(courseId).then(post => {
+    const postId = this.route.snapshot.paramMap.get("id");
+    this.contentfulService.getPost(postId).then(post => {
       this.post = post;
     });
+  }
+
+  goToList() {
+    this.router.navigate(["/home"]);
   }
 
   _returnHtmlFromRichText(richText) {

@@ -1,0 +1,34 @@
+/* ==========================================================================
+   Post Page
+   ========================================================================== */
+
+
+
+@import "../../imports/shadow";
+@import "../../imports/color";
+@import "../../imports/transition";
+
+
+.post {
+  border-radius: 10px;
+  background: $white;
+  padding: 40px;
+  margin: 20px;
+  @include shadow5;
+  list-style-type: none;
+
+
+  .categories {
+    display: inline-block;
+    padding-right: 5px;
+
+    &::after {
+      content: ",";
+    }
+
+    &:last-child {
+      color: green;
+    }
+
+  }
+}

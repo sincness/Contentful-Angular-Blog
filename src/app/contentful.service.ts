@@ -23,9 +23,9 @@ export class ContentfulService {
       .then(res => res.items);
   }
 
-  getCourse(courseId): Promise<Entry<any>> {
+  getPost(postId): Promise<Entry<any>> {
     return this.cdaClient
-      .getEntries(Object.assign({}, { "sys.id": courseId }))
+      .getEntries(Object.assign({}, { "sys.id": postId }))
       .then(res => res.items[0]);
   }
 }
