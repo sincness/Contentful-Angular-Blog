@@ -1,14 +1,20 @@
 <div class="post">
   <h1>{{ post.fields.title }}</h1>
-  <div [innerHtml]="_returnHtmlFromRichText(post.fields.textField)"></div>
-
+  <div>
+    <p class="author">Af {{ post.fields.author }}</p>
+    <p class="date">Postet</p>
+    <p class="date date_text"> {{_returnCreatedDate(post.fields.date)}}</p>
+  </div>
   <p class="categories" *ngFor="let categories of post.fields.categories">
     {{categories}}
   </p>
-  <img class="article_img" src="http:{{ post.fields.image.fields.file.url }}" alt="image" />
-  <p class="tags" *ngFor="let tags of post.fields.tags">
-    {{tags}}
-  </p>
+  <div [innerHtml]="_returnHtmlFromRichText(post.fields.textField)"></div>
 
+  <img class="article_img" src="http:{{ post.fields.image.fields.file.url }}" alt="image" />
+  <div>
+    <p class="tags" *ngFor="let tags of post.fields.tags">
+      {{tags}}
+    </p>
+  </div>
   <a class="btn" (click)="goToList()">Go back</a>
 </div>

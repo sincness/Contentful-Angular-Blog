@@ -17,10 +17,15 @@
   @include shadow5;
   list-style-type: none;
 
+  img {
+    width: 100%;
+  }
 
   .categories {
     display: inline-block;
     padding-right: 5px;
+    margin: 0px;
+
 
     &::after {
       content: ",";
@@ -30,5 +35,9 @@
       color: green;
     }
 
+  }
+
+  .tags {
+    margin-top: 20px;
   }
 }

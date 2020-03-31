@@ -23,6 +23,7 @@ export class PostsComponent implements OnInit {
     const postId = this.route.snapshot.paramMap.get("id");
     this.contentfulService.getPost(postId).then(post => {
       this.post = post;
+      console.log(post);
     });
   }
 
@@ -39,5 +40,19 @@ export class PostsComponent implements OnInit {
       return "<p>Error</p>";
     }
     return documentToHtmlString(richText);
+  }
+
+  _returnCreatedDate(datetime) {
+    if (datetime === undefined || datetime === null) {
+      return "<p>Error</p>";
+    }
+    const e = new Date(datetime);
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    };
+    return e.toLocaleDateString("da-DK", options);
   }
 }

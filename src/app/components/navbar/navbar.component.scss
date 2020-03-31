@@ -7,8 +7,6 @@
 nav,
 ul {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
 }
 
 nav {
@@ -16,6 +14,7 @@ nav {
 
   ul {
     width: 100%;
+    max-width: 200px;
 
     li {
       list-style-type: none;

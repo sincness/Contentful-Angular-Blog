@@ -3,15 +3,13 @@
     <ul>
       <li *ngFor="let post of Posts">
         <h1>{{ post.fields.title }}</h1>
-        <div [innerHtml]="_returnHtmlFromRichText(post.fields.textField)"></div>
-
-        <p class="categories" *ngFor="let categories of post.fields.categories">
-          {{categories}}
-        </p>
+        <div>
+          <p class="author">Af {{ post.fields.author }}</p>
+          <p class="date">Postet</p>
+          <p class="date date_text"> {{_returnCreatedDate(post.fields.date)}}</p>
+        </div>
         <img class="article_img" src="http:{{ post.fields.image.fields.file.url }}" alt="image" />
-        <p class="tags" *ngFor="let tags of post.fields.tags">
-          {{tags}}
-        </p>
+
         <a class="btn" (click)="goToCourseDetailsPage(post.sys.id)">Read more</a>
       </li>
     </ul>
