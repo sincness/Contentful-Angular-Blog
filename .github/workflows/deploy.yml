@@ -1,4 +1,4 @@
-name: Firebase Continuous Deployment
+name: Firebase_Continuous_Deployment
 
 on:
   push:
