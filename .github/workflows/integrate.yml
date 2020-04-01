@@ -16,7 +16,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: run on linux
-        if: startsWith(matrix.os,'ubuntu')
         run: |
           npm run test-headless
       - name: Build
