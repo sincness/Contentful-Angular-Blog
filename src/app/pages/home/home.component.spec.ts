@@ -18,8 +18,8 @@ describe("HomeComponent", () => {
     fixture.detectChanges();
   });
 
-  // it("should create", () => {
-  //   fixture.detectChanges();
-  //   expect(component).toBeTruthy();
-  // });
+  it("should create", () => {
+    fixture.detectChanges();
+    expect(component).toBeTruthy();
+  });
 });
