@@ -15,13 +15,13 @@ export class ContentfulService {
 
   constructor() {}
 
-  getBlogPosts(query?: object): Promise<Entry<any>[]> {
+  async getBlogPosts(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient
       .getEntries(Object.assign({}, query))
       .then(res => res.items);
   }
 
-  getSinglePost(contentId): Observable<any> {
+  getSinglePost(contentId: any): Observable<any> {
     const promise = this.cdaClient.getEntry(contentId);
     return from(promise).pipe(map(entry => entry.fields));
   }

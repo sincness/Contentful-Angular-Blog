@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
   }
 
   goToCourseDetailsPage(courseId) {
-    console.log(courseId);
     this.router.navigate(["/post", courseId]);
   }
 
