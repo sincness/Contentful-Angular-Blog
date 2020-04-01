@@ -19,11 +19,11 @@ export class HomeComponent implements OnInit {
     this.contentfulService.getBlogPosts().then(Posts => (this.Posts = Posts));
   }
 
-  goToCourseDetailsPage(courseId) {
+  goToCourseDetailsPage(courseId: string) {
     this.router.navigate(["/post", courseId]);
   }
 
-  _returnHtmlFromRichText(richText) {
+  _returnHtmlFromRichText(richText: any) {
     if (
       richText === undefined ||
       richText === null ||
@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
     return documentToHtmlString(richText);
   }
 
-  _returnCreatedDate(datetime) {
+  _returnCreatedDate(datetime: any) {
     if (datetime === undefined || datetime === null) {
       return "<p>Error</p>";
     }
