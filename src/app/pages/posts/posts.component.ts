@@ -27,7 +27,7 @@ export class PostsComponent implements OnInit {
     this.router.navigate(["/home"]);
   }
 
-  _returnHtmlFromRichText(richText) {
+  _returnHtmlFromRichText(richText: any) {
     if (
       richText === undefined ||
       richText === null ||
@@ -38,7 +38,7 @@ export class PostsComponent implements OnInit {
     return documentToHtmlString(richText);
   }
 
-  _returnCreatedDate(datetime) {
+  _returnCreatedDate(datetime: any) {
     if (datetime === undefined || datetime === null) {
       return "<p>Error</p>";
     }
