@@ -28,25 +28,25 @@ jobs:
 #     branches:
 #       - master
 
-jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js 12.8
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.8
-      - name: Install dependencies
-        run: npm install
-      - name: Build
-        run: npm run build -- --prod
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
+# jobs:
+#   build:
+#     name: Build
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v1
+#       - name: Use Node.js 12.8
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: 12.8
+#       - name: Install dependencies
+#         run: npm install
+#       - name: Build
+#         run: npm run build -- --prod
+#   deploy:
+#     name: Deploy
+#     needs: build
+#     runs-on: ubuntu-latest
+#     steps:
 #       - name: Checkout Repo
 #         uses: actions/checkout@master
 #       - name: Download Artifact
