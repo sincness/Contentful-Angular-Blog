@@ -1,10 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Router, ActivatedRoute, ParamMap } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { ContentfulService } from "../../contentful.service";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import { Observable, from } from "rxjs";
-
-import { Entry } from "contentful";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-posts",
@@ -12,7 +10,6 @@ import { Entry } from "contentful";
   styleUrls: ["./posts.component.scss"]
 })
 export class PostsComponent implements OnInit {
-  // post: Entry<any>;
   post: Observable<any>;
 
   constructor(
@@ -23,7 +20,7 @@ export class PostsComponent implements OnInit {
 
   ngOnInit() {
     const postId = this.route.snapshot.paramMap.get("id");
-    this.post = this.contentfulService.getContent(postId);
+    this.post = this.contentfulService.getSinglePost(postId);
   }
 
   goToList() {

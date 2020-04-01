@@ -21,13 +21,7 @@ export class ContentfulService {
       .then(res => res.items);
   }
 
-  getPost(postId): Promise<Entry<any>> {
-    return this.cdaClient
-      .getEntries(Object.assign({}, { "sys.id": postId }))
-      .then(res => res.items[0]);
-  }
-
-  getContent(contentId): Observable<any> {
+  getSinglePost(contentId): Observable<any> {
     const promise = this.cdaClient.getEntry(contentId);
     return from(promise).pipe(map(entry => entry.fields));
   }
