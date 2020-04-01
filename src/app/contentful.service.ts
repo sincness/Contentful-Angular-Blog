@@ -1,18 +1,16 @@
 import { Injectable } from "@angular/core";
 import { createClient, Entry } from "contentful";
+import { environment } from "../environments/environment";
+import { Observable, from } from "rxjs";
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
 })
 export class ContentfulService {
-  CONFIG = {
-    space: "kn33bkhab8tl",
-    accessToken: "t75ExREYp9Y8UFPb94lzZcfgHfY2p3Pq9fNEc6e-kK8"
-  };
-
   private cdaClient = createClient({
-    space: this.CONFIG.space,
-    accessToken: this.CONFIG.accessToken
+    space: environment.contentful.space,
+    accessToken: environment.contentful.accessToken
   });
 
   constructor() {}
@@ -27,5 +25,10 @@ export class ContentfulService {
     return this.cdaClient
       .getEntries(Object.assign({}, { "sys.id": postId }))
       .then(res => res.items[0]);
+  }
+
+  getContent(contentId): Observable<any> {
+    const promise = this.cdaClient.getEntry(contentId);
+    return from(promise).pipe(map(entry => entry.fields));
   }
 }

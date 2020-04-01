@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { ContentfulService } from "../../contentful.service";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import { Observable, from } from "rxjs";
 
 import { Entry } from "contentful";
 
@@ -11,7 +12,8 @@ import { Entry } from "contentful";
   styleUrls: ["./posts.component.scss"]
 })
 export class PostsComponent implements OnInit {
-  post: Entry<any>;
+  // post: Entry<any>;
+  post: Observable<any>;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,10 +23,7 @@ export class PostsComponent implements OnInit {
 
   ngOnInit() {
     const postId = this.route.snapshot.paramMap.get("id");
-    this.contentfulService.getPost(postId).then(post => {
-      this.post = post;
-      console.log(post);
-    });
+    this.post = this.contentfulService.getContent(postId);
   }
 
   goToList() {

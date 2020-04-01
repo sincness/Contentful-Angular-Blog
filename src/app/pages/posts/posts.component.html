@@ -1,22 +1,18 @@
-<div class="post">
-  <h1>{{ post.fields.title }}</h1>
+<div *ngIf="post | async as myPost" class="post">
+  <h1>{{ myPost.title }}</h1>
   <div>
-    <p class="author">Af {{ post.fields.author }}</p>
-    <p class="date">Postet</p>
-    <p class="date date_text">{{ _returnCreatedDate(post.fields.date) }}</p>
+    <p class="author">Af {{ myPost.author }}</p>
+    <p class="date">myPostet</p>
+    <p class="date date_text">{{ _returnCreatedDate(myPost.date) }}</p>
   </div>
-  <p class="categories" *ngFor="let categories of post.fields.categories">
+  <p class="categories" *ngFor="let categories of myPost.categories">
     {{ categories }}
   </p>
-  <div [innerHtml]="_returnHtmlFromRichText(post.fields.textField)"></div>
+  <div [innerHtml]="_returnHtmlFromRichText(myPost.textField)"></div>
 
-  <img
-    class="article_img"
-    src="http:{{ post.fields.image.fields.file.url }}"
-    alt="image"
-  />
+  <img class="article_img" src="http:{{ myPost.image.fields.file.url }}" alt="image" />
   <div>
-    <p class="tags" *ngFor="let tags of post.fields.tags">
+    <p class="tags" *ngFor="let tags of myPost.tags">
       {{ tags }}
     </p>
   </div>
